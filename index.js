@@ -192,8 +192,6 @@ function viewDepartments() {
         const departments = res.reduce((acc, {id, ...x}) => { acc[id] = x; return acc}, {})
         console.table(res);
     });  
-    
-    //begin();
 }
 
 function viewRoles(){
