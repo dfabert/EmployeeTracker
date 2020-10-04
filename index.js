@@ -35,8 +35,8 @@ function begin() {
                     'view all departments',
                     'view all roles',
                     'view all employees',
-                    "update an employee's role",
-                    "update employee's manager"
+                    "update an employee's role" //,
+                    //"update employee's manager"
                 ]
       })
       .then(function(answer) {
@@ -291,68 +291,68 @@ function updateEmployee() {
 
 
 
+//This will be used for a later version of the app
+// function updateManager() {
+//     console.log("Let's update the employee's manager here");
+//     let query = 'SELECT * FROM employee'
+//     connection.query(query, function(err, res) {
+//         if (err) throw err;
+//         inquirer
+//             .prompt([
+//               {
+//                name: 'employee',
+//                type: 'list',
+//                choices:  function(){
+//                     let choices = [];
+//                     for (let i = 0; i < res.length; i++) {
+//                         choices.push(res[i].first_name);
+//                     }
+//                     return choices;
+//                 },
+//                 message: 'Which employee would you like have a new manager?'
+//               },
+//               {
+//                 name: 'manager',
+//                 type: 'list',
+//                 choices:  function(){
+//                      let choices = [];
+//                      for (let i = 0; i < res.length; i++) {
+//                          choices.push(res[i].first_name);
+//                      }
+//                      return choices;
+//                  },
+//                  message: 'Which employee would you like to assign as the manager?'
+//                }
+//             ]).then(function(answer){
+//                 for (let i = 0; i < res.length; i++) {
+//                     if (res[i].first_name === answer.employee) {
+//                         employeeID = res[i].id;
+//                     }
+//                 }
 
-function updateManager() {
-    console.log("Let's update the employee's manager here");
-    let query = 'SELECT * FROM employee'
-    connection.query(query, function(err, res) {
-        if (err) throw err;
-        inquirer
-            .prompt([
-              {
-               name: 'employee',
-               type: 'list',
-               choices:  function(){
-                    let choices = [];
-                    for (let i = 0; i < res.length; i++) {
-                        choices.push(res[i].first_name);
-                    }
-                    return choices;
-                },
-                message: 'Which employee would you like have a new manager?'
-              },
-              {
-                name: 'manager',
-                type: 'list',
-                choices:  function(){
-                     let choices = [];
-                     for (let i = 0; i < res.length; i++) {
-                         choices.push(res[i].first_name);
-                     }
-                     return choices;
-                 },
-                 message: 'Which employee would you like to assign as the manager?'
-               }
-            ]).then(function(answer){
-                for (let i = 0; i < res.length; i++) {
-                    if (res[i].first_name === answer.employee) {
-                        employeeID = res[i].id;
-                    }
-                }
+//                 for (let i = 0; i < res.length; i++) {
+//                     if (res[i].first_name === answer.manager) {
+//                         managerID = res[i].id;
+//                     }
+//                 }
 
-                for (let i = 0; i < res.length; i++) {
-                    if (res[i].first_name === answer.manager) {
-                        managerID = res[i].id;
-                    }
-                }
-
-                connection.query(
-                    'UPDATE employee SET ? WHERE ?',
-                    [
-                        {
-                            manager_id: managerID
-                        },
-                        {
-                            id:  employeeID
-                        }
-                    ],
-                    function(error) {
-                        if (error) throw err;
-                        begin();
-                      }
-                    )
+//                 connection.query(
+//                     'UPDATE employee SET ? WHERE ?',
+//                     [
+//                         {
+//                             manager_id: managerID
+//                         },
+//                         {
+//                             id:  employeeID
+//                         }
+//                     ],
+//                     function(error) {
+//                         if (error) throw err;
+//                         begin();
+//                       }
+//                     )
 
 
-            })
-    });
-};
+//             })
+//     });
+// };
