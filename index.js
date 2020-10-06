@@ -189,8 +189,8 @@ function addEmployee() {
 
 function viewDepartments() {
     connection.query('SELECT * FROM department', function(err,res){
-        const departments = res.reduce((acc, {id, ...x}) => { acc[id] = x; return acc}, {})
         console.table(res);
+        begin();
     });  
 }
 
@@ -199,9 +199,8 @@ function viewRoles(){
     connection.query(query, function(err,res){
         if (err) throw err;
         console.table(res);
+        begin();
     });
-
-    // begin();
 }
 
 function viewEmployees() {
@@ -211,9 +210,8 @@ function viewEmployees() {
     connection.query(query, function(err,res){
         if (err) throw err;
         console.table(res);
+        begin();
     });
-
-    // begin();
 }
 
 function updateEmployee() {
